@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 
 
-
+#KNN made with sklearn for testing and comparing
 def k_NN_sklearn(X_train, y_train, X_test, K):
     scaler = StandardScaler()
     scaler.fit(X_train)
@@ -28,18 +28,17 @@ def k_NN_sklearn(X_train, y_train, X_test, K):
     return y_pred
 
 
-
+#KNN implementation with a prediction function
 def prediction(X_train, y_train, X_test, K=3):
 
     distances = []
     y_pred= []
+    #loop all the X_test and calculate all the distances to them from the X_train set
     for j in range( len(X_test)):  
         for i in range( len(X_train)):
             eucliDist = distance.euclidean(X_train[i], X_test[j])
             distances.append([eucliDist,y_train[i]])
-
-
-
+        #for every X_test we produce a vote of the K closest points and get the most common 
         votes = [i[1] for i in sorted(distances)[:K]]
         vote_result = Counter(votes).most_common(1)[0][0]
 
