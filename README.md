@@ -9,7 +9,9 @@ time Spent:
 -  10  min wasted implementing a much more complex implementation
  
 case of use 
+
 y_pred = prediction(X_train, y_train, X_test, K)
+
 plot(X_train, y_train, X_test)
   
   
